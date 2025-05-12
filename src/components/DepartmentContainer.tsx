@@ -5,10 +5,10 @@ import './style.css'
 
 interface DepartmentContainerProps 
 {
-  imagePath: string;
+  imagePath?: string;
   alt?: string;
-  departmentName: string;
-  departmentDescription: string;
+  departmentName?: string;
+  departmentDescription?: string;
 }
 
 const DepartmentContainer: React.FC<DepartmentContainerProps> = ({

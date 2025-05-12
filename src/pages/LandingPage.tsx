@@ -3,7 +3,13 @@ import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import './pageStyles/landingPage.css';
 import Sidebar from '../components/Sidebar';
-
+import MainContainer1 from '../components/MainContainer1';
+import DepartmentContainer from '../components/DepartmentContainer';
+import itLogo from '../images/itLogo.png';
+import hrLogo from '../images/hr_Logo.png';
+import techOpsLogo from '../images/tech_ops_Logo.png';
+import procurementLogo from '../images/procurement_Logo.png';
+import financeLogo from '../images/finance_Logo.png';
 interface LandingPageProps {
   username: string;
 }
@@ -27,13 +33,52 @@ const LandingPage: React.FC<LandingPageProps> = ({ username }) => {
             
             <div className="header-container">
               <Header username={username} />
+                          <MainContainer1 title="Departments">
+              {/* Add your content here */}
+              <DepartmentContainer
+                imagePath= {itLogo }
+                alt="IT Department"
+                departmentName="IT"
+                departmentDescription="Access technical support and software requests."
+                />
+                <DepartmentContainer
+                imagePath= {hrLogo }
+                alt="HR Department"
+                departmentName="HR"
+                departmentDescription="Step-by-step guide for authorization acknowledgment."
+                />
+                <DepartmentContainer
+                imagePath= {techOpsLogo }
+                alt="tech ops Department"
+                departmentName="Tech Ops"
+                departmentDescription="Manage workflows, projects, and operational and resources."
+                />
+                <DepartmentContainer
+                imagePath= {procurementLogo }
+                alt="Procurement Department"
+                departmentName="Procurement"
+                departmentDescription="Access purchasing tools, vendor management, and supply chain."
+                />
+                <DepartmentContainer
+                imagePath= {financeLogo }
+                alt="IT Department"
+                departmentName="Finance"
+                departmentDescription="View financial reports, budgeting tools, and accounting resources"
+                />
+            </MainContainer1>
+            <MainContainer1>
+              
+              <DepartmentContainer/>
+              <DepartmentContainer/>
+              <DepartmentContainer/>
+
+            </MainContainer1>
             </div>
           </div>
           
           {/* Insert your third component here */}
           <div className="component-section">
-            {/* Your component goes here - for example:
-            <YourThirdComponent /> */}
+
           </div>
           
           {/* Add more component sections as needed */}

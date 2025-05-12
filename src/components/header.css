@@ -1,3 +1,4 @@
+/* Header Container */
 .landing-header {
   display: flex;
   flex-direction: column;
@@ -7,9 +8,12 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 65rem;
+  max-width: 100%; /* Ensure full width without causing overflow */
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Add spacing between sections if needed */
 }
 
+/* Intro Text */
 .intro {
   font-size: 2.5rem;
   color: #ffffff;
@@ -17,6 +21,7 @@
   text-align: left;
 }
 
+/* News Info Text */
 .news-info {
   font-size: 1.2rem;
   color: #ffffff;
@@ -24,9 +29,9 @@
   text-align: left;
 }
 
+/* Read More Button */
 .button-read-more {
   background-color: #ffffff;
- 
   padding: 0.75rem 1.5rem;
   border-radius: 25px;
   cursor: pointer;
@@ -37,4 +42,24 @@
 
 .button-read-more:hover {
   background-color: #bdbdbd;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .landing-header {
+    padding: 1rem; /* Reduced padding on small screens */
+  }
+
+  .intro {
+    font-size: 1.8rem; /* Adjust font size for mobile */
+  }
+
+  .news-info {
+    font-size: 1rem; /* Adjust font size for mobile */
+  }
+
+  .button-read-more {
+    padding: 0.5rem 1rem; /* Smaller padding on mobile */
+    font-size: 1rem; /* Adjust button text size */
+  }
 }

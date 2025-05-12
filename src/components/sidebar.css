@@ -1,19 +1,33 @@
-/* sidebar.css */
-
+/* Main sidebar container */
 .sidebar-container {
   display: flex;
+  flex-direction: column; /* Ensure the sidebar grows vertically */
   min-height: 100vh;
   background-color: #f5f5f5;
+  width: 260px;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  position: fixed;  /* Make sidebar fixed */
+  top: 0;
+  left: 0;
+  z-index: 10;  /* Ensure the sidebar is always on top */
 }
 
+/* Sidebar itself */
 .sidebar {
-  width: 260px;
+  width: 100%; /* Sidebar width takes up the full width of sidebar-container */
   height: 100vh;
   background-color: #ffffff;
   padding: 1rem;
   border-right: 1px solid #e0e0e0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-  overflow-y: auto;
+  overflow-y: scroll; /* Allow vertical scrolling */
+  -ms-overflow-style: none;  /* Hide scrollbar in Internet Explorer */
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+}
+
+/* Hide the scrollbar for webkit browsers (Chrome, Safari) */
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 /* Home section styling */

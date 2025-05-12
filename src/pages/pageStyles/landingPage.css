@@ -1,41 +1,70 @@
-/* Make components container flex column by default */
-.components-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 20px; /* Space between sections */
+/* Outer container for the whole landing page */
+body {
+  margin: 0; /* Ensure there's no margin around the body */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  height: 100vh; /* Make sure body fills the screen */
 }
 
-/* Create a row layout for sidebar and header */
-/* Create a row layout for sidebar and header */
+/* Main container holding the entire landing page */
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full height of the screen */
+}
+
+/* Main content area (sidebar + header + departments) */
+.landing-content {
+  flex: 1; /* Allow this area to take up remaining space */
+  display: flex;
+  overflow: hidden; /* Prevent overflow issues */
+}
+
+/* Sidebar and header row side by side */
 .sidebar-header-row {
   display: flex;
   width: 100%;
-  gap: 0; /* Remove the gap between sidebar and header */
-  /* Or completely remove the gap property */
+  height: 100%;
 }
 
-/* Control the width of sidebar - now on the left */
+/* Sidebar column */
 .sidebar-container {
-  flex: 1; /* Takes 1/4 of the space (or adjust as needed) */
-  max-width: 250px; /* Optional: limit sidebar width */
+  flex: 0 0 250px; /* Fixed width for sidebar */
+  background-color: #f8f8f8;
+  height: 100%; /* Full height of the screen */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Optional: add shadow for style */
 }
 
-/* Control the width of header - now on the right */
+/* Main area (Header + Department containers) */
 .header-container {
-  flex: 3; /* Takes remaining space */
+  flex: 1; /* Allow this area to take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  padding: 1rem;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Container for department section */
+.components-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Take up full width */
+  gap: 20px; /* Space between components */
+}
+
+/* Responsive: Stack sidebar and header vertically on smaller screens */
 @media (max-width: 768px) {
-  .sidebar-header-row {
-    flex-direction: column; /* Stack vertically on mobile */
+  .landing-content {
+    flex-direction: column; /* Stack the content vertically on small screens */
   }
-  
-  .sidebar-container,
+
+  .sidebar-container {
+    width: 100%; /* Make sidebar take full width */
+    height: auto; /* Let sidebar adjust its height based on content */
+  }
+
   .header-container {
-    flex: none;
-    width: 100%;
-    max-width: none; /* Remove max-width for sidebar on mobile */
+    width: 100%; /* Let header take full width */
+    height: auto; /* Let header adjust its height based on content */
   }
 }

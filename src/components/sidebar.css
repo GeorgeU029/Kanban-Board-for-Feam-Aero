@@ -1,36 +1,32 @@
 /* Main sidebar container */
 .sidebar-container {
   display: flex;
-  flex-direction: column; /* Ensure the sidebar grows vertically */
-  min-height: 100vh;
+  flex-direction: column;
+  height: 100%; /* Use height instead of min-height */
   background-color: #f5f5f5;
   width: 260px;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  position: fixed;  /* Make sidebar fixed */
-  top: 0;
-  left: 0;
-  z-index: 10;  /* Ensure the sidebar is always on top */
+  overflow-x: hidden;
+  /* Remove position: fixed to keep it in the document flow */
 }
 
 /* Sidebar itself */
 .sidebar {
-  width: 100%; /* Sidebar width takes up the full width of sidebar-container */
-  height: 100vh;
+  width: 100%;
+  height: 100%; /* Changed from 100vh to 100% */
   background-color: #ffffff;
   padding: 1rem;
   border-right: 1px solid #e0e0e0;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
-  overflow-y: scroll; /* Allow vertical scrolling */
-  -ms-overflow-style: none;  /* Hide scrollbar in Internet Explorer */
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  overflow-y: auto; /* Change to auto instead of scroll */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Hide the scrollbar for webkit browsers (Chrome, Safari) */
+/* The rest of the CSS remains the same */
 .sidebar::-webkit-scrollbar {
   display: none;
 }
 
-/* Home section styling */
 .home-section {
   margin-bottom: 0.5rem;
 }
@@ -93,7 +89,6 @@
   background-color: #f5f7fa;
 }
 
-/* Style for expanded category headers */
 .category-header.expanded .category-name {
   color: #FF8A00;
   font-weight: 600;
@@ -105,19 +100,16 @@
   transition: color 0.3s ease;
 }
 
-/* Arrow styling with working animation */
 .arrow {
   display: inline-block;
   width: 0;
   height: 0;
   transition: transform 0.5s ease, border-left-color 0.3s ease;
-  /* Create a right-pointing triangle by default */
   border-left: 5px solid #6b7280;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
 }
 
-/* When expanded, rotate the arrow 90 degrees to point down and change color */
 .arrow.down {
   transform: rotate(90deg);
   border-left-color: #FF8A00;
@@ -147,14 +139,11 @@
 }
 
 .category-item.selected {
-  background-color: #f8f0e7; /* Light orange background */
+  background-color: #f8f0e7;
   color: #FF8A00;
   font-weight: 500;
 }
 
-/* Icon styling for sidebar */
-
-/* Home icon */
 .item-icon {
   width: 20px;
   height: 20px;
@@ -162,7 +151,6 @@
   object-fit: contain;
 }
 
-/* Category icons */
 .category-icon {
   width: 20px;
   height: 20px;
@@ -171,23 +159,19 @@
   transition: filter 0.3s ease;
 }
 
-/* Container for category name and icon */
 .category-title {
   display: flex;
   align-items: center;
 }
 
-/* Additional styles for hover and selected states */
 .home-item.selected .item-icon {
   filter: brightness(1.2);
 }
 
-/* Add highlight to the icon when category is expanded */
 .category-header.expanded .category-icon {
   filter: brightness(1.2);
 }
 
-/* Animation for dropdown */
 @keyframes slideDown {
   from {
     max-height: 0;

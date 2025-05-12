@@ -1,22 +1,32 @@
 /* Outer container for the whole landing page */
 body {
-  margin: 0; /* Ensure there's no margin around the body */
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  height: 100vh; /* Make sure body fills the screen */
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  height: 100vh;
+  width: 100vw; /* Ensure body takes full width */
 }
 
 /* Main container holding the entire landing page */
 .landing-container {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* Full height of the screen */
+  height: 100vh;
+  width: 100%;
 }
 
-/* Main content area (sidebar + header + departments) */
+/* Navbar at the top */
+.navbar {
+  width: 100%;
+  z-index: 10; /* Ensure navbar is above other content */
+}
+
+/* Main content area (sidebar + content) */
 .landing-content {
-  flex: 1; /* Allow this area to take up remaining space */
   display: flex;
-  overflow: hidden; /* Prevent overflow issues */
+  flex: 1; /* Take remaining space */
+  overflow: hidden;
+  position: relative; /* For proper child positioning */
 }
 
 /* Sidebar and header row side by side */
@@ -28,43 +38,63 @@ body {
 
 /* Sidebar column */
 .sidebar-container {
-  flex: 0 0 250px; /* Fixed width for sidebar */
-  background-color: #f8f8f8;
-  height: 100%; /* Full height of the screen */
-  overflow-y: auto; /* Allow scrolling if content overflows */
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1); /* Optional: add shadow for style */
+  width: 260px; /* Fixed width for sidebar */
+  height: 100%;
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  overflow-y: auto;
 }
 
 /* Main area (Header + Department containers) */
 .header-container {
   flex: 1; /* Allow this area to take up the remaining space */
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto; /* Allow scrolling if content overflows */
   padding: 1rem;
+  overflow-y: auto;
+  margin-left: 0; /* No need for margin when sidebar is in document flow */
 }
 
 /* Container for department section */
 .components-container {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Take up full width */
-  gap: 20px; /* Space between components */
+  width: 100%;
+  gap: 20px;
 }
 
-/* Responsive: Stack sidebar and header vertically on smaller screens */
+/* Make sure department containers flex properly */
+.departments-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* Align to left instead of center */
+}
+
+/* Adjust mainbox sizing */
+.mainbox {
+  height: 150px; /* Fixed height instead of vh */
+  width: 200px; /* Fixed width instead of vw */
+  max-width: 100%;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
-  .landing-content {
-    flex-direction: column; /* Stack the content vertically on small screens */
+  .sidebar-header-row {
+    flex-direction: column;
   }
 
   .sidebar-container {
-    width: 100%; /* Make sidebar take full width */
-    height: auto; /* Let sidebar adjust its height based on content */
+    width: 100%;
+    height: auto;
+    max-height: 300px; /* Limit height on mobile */
   }
 
   .header-container {
-    width: 100%; /* Let header take full width */
-    height: auto; /* Let header adjust its height based on content */
+    width: 100%;
+    padding: 0.5rem;
+  }
+  
+  .mainbox {
+    width: 100%; /* Full width on mobile */
+    height: auto;
+    min-height: 120px;
   }
 }

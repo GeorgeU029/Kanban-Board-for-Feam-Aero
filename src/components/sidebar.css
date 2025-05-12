@@ -1,0 +1,186 @@
+/* sidebar.css */
+
+.sidebar-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  overflow-y: auto;
+}
+
+/* Home section styling */
+.home-section {
+  margin-bottom: 0.5rem;
+}
+
+.home-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.home-item:hover {
+  background-color: #f5f7fa;
+}
+
+.home-item.selected {
+  color: #FF8A00;
+  font-weight: 500;
+}
+
+.home-icon {
+  margin-right: 0.5rem;
+  font-size: 2.4rem;
+}
+
+.home-label {
+  font-weight: 500;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 0.5rem 0 1rem 0;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.category {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 0.25rem;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.category-header:hover {
+  background-color: #f5f7fa;
+}
+
+/* Style for expanded category headers */
+.category-header.expanded .category-name {
+  color: #FF8A00;
+  font-weight: 600;
+}
+
+.category-name {
+  font-weight: 500;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Arrow styling with working animation */
+.arrow {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  transition: transform 0.5s ease, border-left-color 0.3s ease;
+  /* Create a right-pointing triangle by default */
+  border-left: 5px solid #6b7280;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+}
+
+/* When expanded, rotate the arrow 90 degrees to point down and change color */
+.arrow.down {
+  transform: rotate(90deg);
+  border-left-color: #FF8A00;
+}
+
+.category-items {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+}
+
+.category-item {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border-radius: 4px;
+  color: #4b5563;
+  transition: all 0.2s;
+}
+
+.category-item:hover {
+  background-color: #f3f4f6;
+}
+
+.category-item.selected {
+  background-color: #f8f0e7; /* Light orange background */
+  color: #FF8A00;
+  font-weight: 500;
+}
+
+/* Icon styling for sidebar */
+
+/* Home icon */
+.item-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.75rem;
+  object-fit: contain;
+}
+
+/* Category icons */
+.category-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.75rem;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+/* Container for category name and icon */
+.category-title {
+  display: flex;
+  align-items: center;
+}
+
+/* Additional styles for hover and selected states */
+.home-item.selected .item-icon {
+  filter: brightness(1.2);
+}
+
+/* Add highlight to the icon when category is expanded */
+.category-header.expanded .category-icon {
+  filter: brightness(1.2);
+}
+
+/* Animation for dropdown */
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}

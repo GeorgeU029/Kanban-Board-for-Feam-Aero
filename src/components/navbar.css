@@ -1,0 +1,140 @@
+/* navbar.css */
+
+/* Main navbar container */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #1D3557;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Left section with burger, logo and text */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.burger-button {
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem; /* Increased margin to push logo and text to the right */
+}
+
+.burger-button:hover {
+  background-color: #f5f5f5;
+}
+
+.logo-placeholder {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2rem;
+}
+
+/* Logo image styling - controls the size of your inserted logo */
+.logo {
+  max-height: 64px;
+  max-width: 64px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.brand-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+
+/* Middle search section */
+.search-container {
+  flex: 1;
+  max-width: 36rem;
+  margin: 0 1rem;
+}
+
+.search-wrapper {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem 0.5rem 2.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  outline: none;
+  font-size: 0.875rem;
+}
+
+.search-input:focus {
+  border-color: #6b7280;
+  box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.2);
+}
+
+/* Right section with icons and username */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-left: 0.5rem;
+}
+
+.icon-button:hover {
+  background-color: #f5f5f5;
+}
+
+.username {
+  margin: 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color:white;
+}
+
+.profile-icon {
+  height: 2rem;
+  width: 2rem;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}

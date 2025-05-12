@@ -8,9 +8,10 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 100%; /* Ensure full width without causing overflow */
   box-sizing: border-box;
   margin-bottom: 20px; /* Add spacing between sections if needed */
+  margin-right: 0;
+  margin-left: 0;
 }
 
 /* Intro Text */

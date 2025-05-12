@@ -1,10 +1,20 @@
 /* Outer container for the whole landing page */
+root{
+  max-width: 2300px;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   height: 100vh;
   width: 100vw; /* Ensure body takes full width */
+  box-sizing: border-box;
+}
+
+/* Reset box-sizing for all elements */
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 /* Main container holding the entire landing page */
@@ -13,12 +23,16 @@ body {
   flex-direction: column;
   height: 100vh;
   width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navbar at the top */
 .navbar {
   width: 100%;
   z-index: 10; /* Ensure navbar is above other content */
+  box-sizing: border-box;
 }
 
 /* Main content area (sidebar + content) */
@@ -27,6 +41,10 @@ body {
   flex: 1; /* Take remaining space */
   overflow: hidden;
   position: relative; /* For proper child positioning */
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Sidebar and header row side by side */
@@ -34,6 +52,8 @@ body {
   display: flex;
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Sidebar column */
@@ -42,6 +62,8 @@ body {
   height: 100%;
   flex-shrink: 0; /* Prevent sidebar from shrinking */
   overflow-y: auto;
+  margin: 0;
+  padding: 0;
 }
 
 /* Main area (Header + Department containers) */
@@ -49,7 +71,8 @@ body {
   flex: 1; /* Allow this area to take up the remaining space */
   padding: 1rem;
   overflow-y: auto;
-  margin-left: 0; /* No need for margin when sidebar is in document flow */
+  margin: 0;
+  width: calc(100% - 260px); /* Full width minus sidebar width */
 }
 
 /* Container for department section */
@@ -58,6 +81,8 @@ body {
   flex-direction: column;
   width: 100%;
   gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 /* Make sure department containers flex properly */
@@ -66,6 +91,9 @@ body {
   flex-wrap: wrap;
   gap: 20px;
   justify-content: flex-start; /* Align to left instead of center */
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 /* Adjust mainbox sizing */

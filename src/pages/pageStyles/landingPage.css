@@ -1,61 +1,41 @@
-/* LandingPage.css */
-
-/* Main container for the landing page */
-.landing-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #f5f5f5;
-}
-
-/* Content area (everything below navbar) */
-.landing-content {
-  padding: 2rem;
-  flex: 1;
-}
-
-/* Landing page header */
-.landing-header {
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.landing-header h1 {
-  font-size: 2rem;
-  color: #0078d4;
-  margin-bottom: 0.5rem;
-}
-
-.landing-header p {
-  color: #666;
-  font-size: 1.1rem;
-}
-
-/* Container for your components */
+/* Make components container flex column by default */
 .components-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  gap: 20px; /* Space between sections */
 }
 
-/* Individual component section */
-.component-section {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  min-height: 200px; /* Minimum height for component sections */
+/* Create a row layout for sidebar and header */
+/* Create a row layout for sidebar and header */
+.sidebar-header-row {
+  display: flex;
+  width: 100%;
+  gap: 0; /* Remove the gap between sidebar and header */
+  /* Or completely remove the gap property */
 }
 
-/* Responsive adjustments */
+/* Control the width of sidebar - now on the left */
+.sidebar-container {
+  flex: 1; /* Takes 1/4 of the space (or adjust as needed) */
+  max-width: 250px; /* Optional: limit sidebar width */
+}
+
+/* Control the width of header - now on the right */
+.header-container {
+  flex: 3; /* Takes remaining space */
+}
+
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
-  .landing-content {
-    padding: 1rem;
+  .sidebar-header-row {
+    flex-direction: column; /* Stack vertically on mobile */
   }
   
-  .landing-header h1 {
-    font-size: 1.75rem;
+  .sidebar-container,
+  .header-container {
+    flex: none;
+    width: 100%;
+    max-width: none; /* Remove max-width for sidebar on mobile */
   }
 }

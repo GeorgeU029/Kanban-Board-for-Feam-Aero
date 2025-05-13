@@ -46,7 +46,7 @@
   padding: 0;
 }
 
-
+/* Department box styling with background fill animation */
 .mainbox {
   display: flex;
   flex-direction: column;
@@ -63,6 +63,47 @@
   padding: 10px;
   gap: 5px;
   margin: 0;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+/* Background fill animation */
+.mainbox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, 
+                rgba(10, 35, 66, 0.03) 0%, 
+                rgba(10, 35, 66, 0.06) 50%, 
+                rgba(10, 35, 66, 0.09) 100%);
+  transition: transform 0.6s ease;
+  z-index: -1;
+}
+
+.mainbox:hover::before {
+  transform: translateX(100%); /* Move the gradient from left to right */
+}
+
+/* Add a second background that fills in after the gradient passes */
+.mainbox::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 35, 66, 0.08); /* Slightly darker navy blue */
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: -2;
+}
+
+.mainbox:hover::after {
+  opacity: 1;
 }
 
 /* Image container for department icons */
@@ -71,6 +112,8 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 5px;
+  position: relative;
+  z-index: 2; /* Keep above the background fill */
 }
 
 .department-image {
@@ -86,12 +129,19 @@
   align-items: center;
   text-align: center;
   width: 100%;
+  position: relative;
+  z-index: 2; /* Keep above the background fill */
 }
 
 /* Styling for department names and descriptions */
 .department-name {
   margin: 0 0 5px 0;
   font-size: 16px;
+  transition: color 0.6s ease;
+}
+
+.mainbox:hover .department-name {
+  color: #0A2342; /* Navy blue */
 }
 
 .department-description {
@@ -99,6 +149,21 @@
   color: #4B5563;
   font-size: 12px;
   line-height: 1.3;
+  transition: color 0.6s ease;
+}
+
+.mainbox:hover .department-description {
+  color: #0A2342; /* Navy blue with lower opacity */
+}
+
+/* Borders and accent effects */
+.mainbox {
+  border-left: 4px solid #FF8A00;
+  transition: border-left 0.6s ease;
+}
+
+.mainbox:hover {
+  border-left: 4px solid #0A2342; /* Change to navy blue on hover */
 }
 
 /* Responsive design for smaller screens */
@@ -115,7 +180,6 @@
   }
   
   .mainbox {
-    
     width: 365px;
     height: 162px;
   }

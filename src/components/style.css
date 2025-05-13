@@ -1,20 +1,3 @@
-/* General Reset for body and html to prevent overflow */
-root{
-  max-width: 4000px;
-}
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: border-box; /* Ensure all elements use border-box */
-}
-
 /* Main container styling */
 .outer-container {
   display: flex;
@@ -32,13 +15,14 @@ body, html {
   align-items: flex-start;
   gap: 20px;
   padding: 20px;
-  width: 100%;
-  height: auto;
+  width: 1210px;
+  height: 555px;
   border-radius: 15px;
-  margin: 10px 0;
+  margin: 10px auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   background-color: white;
+  overflow: auto; /* Allow scrolling if content overflows */
 }
 
 /* Title styling */
@@ -49,7 +33,7 @@ body, html {
   font-size: 24px;
 }
 
-/* Departments container - Ensuring no horizontal overflow */
+/* Departments container - Setting fixed spacing for 3 boxes of 365px width per row */
 .departments-container {
   display: flex;
   flex-direction: row;
@@ -62,14 +46,14 @@ body, html {
   padding: 0;
 }
 
-/* Department box styling */
+
 .mainbox {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 150px; /* Fixed height in px */
-  width: 200px;  /* Fixed width in px */
+  height: 162px; /* Fixed height as requested */
+  width: 365px;  /* Fixed width as requested */
   border-radius: 10px;
   background-color: #FFFFFF;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -118,24 +102,45 @@ body, html {
 }
 
 /* Responsive design for smaller screens */
+@media (max-width: 1230px) {
+  .main-container-1 {
+    width: 100%;
+    max-width: 1210px;
+    height: auto;
+    min-height: 555px;
+  }
+  
+  .departments-container {
+    justify-content: center;
+  }
+  
+  .mainbox {
+    
+    width: 365px;
+    height: 162px;
+  }
+}
+
 @media (max-width: 768px) {
   .main-container-1 {
     padding: 15px;
   }
 
   .departments-container {
-    justify-content: center; /* Center on small screens */
+    justify-content: center;
   }
-
+  
   .mainbox {
-    width: calc(50% - 15px); /* Two columns on tablet */
-    min-width: 150px;
+    /* Maintain aspect ratio but decrease size slightly if needed */
+    width: 330px;
+    height: 147px;
   }
 }
 
 @media (max-width: 480px) {
   .mainbox {
     width: 100%; /* Full width on mobile */
-    max-width: 300px;
+    height: 162px; /* Keep original height */
+    max-width: 365px; /* Don't exceed original width */
   }
 }
